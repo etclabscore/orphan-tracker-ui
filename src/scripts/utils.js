@@ -5,7 +5,16 @@ export const GetHeaders = () => {
     console.log(err);
     return Promise.reject(err);
   });
+  return body;
+};
 
+export const GetStatus = () => {
+  const body = fetch('https://classic.orphans.etccore.in/status').then(
+    res => res.json()
+  ).catch((err) => {
+    console.log(err);
+    return Promise.reject(err);
+  });
   return body;
 };
 

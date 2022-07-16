@@ -8,6 +8,7 @@
   <title>Orphan Tracker</title>
 
   <link rel="stylesheet" href="./assets/styles/main.css">
+
 </head>
 
 <body>
@@ -16,18 +17,21 @@
 <!--      <h1>Orphan Tracker</h1>-->
     </header>
     <main>
+      <div class="status-container">
       <div class="mytable-wrapper">
         <table id="mytable">
           <tr>
             <th>Number</th>
             <th>Timestamp</th>
             <th>Miner</th>
-            <th>Gas Used</th>
             <th>Hash</th>
             <th>Uncle By</th>
+            <th>Gas Used</th>
           </tr>
 
+
           <tbody id="mytable-body">
+            <tr id="latest-block"></tr>
           </tbody>
         </table>
 
@@ -38,7 +42,6 @@
       </div>
     </main>
     <footer>
-      <p>Made with work️ by Isaac</p>
     </footer>
   </div>
   <script src="./assets/scripts/bundle.js"></script>

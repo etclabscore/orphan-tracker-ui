@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto 1fr auto;
-  line-height: 23px;
+  //line-height: 23px;
 
   & > * {
     grid-column: 2 / -2;
@@ -14,14 +14,14 @@
   header {
     grid-column: 1 / -1;
     // Photo by Karsten Würth (@inf1783) on Unsplash
-    background: #fdbc9a url('../../public/assets/images/venice-italy.jpg')
-      no-repeat center;
-    background-size: cover;
-    height: 500px;
+    //background: #fdbc9a url('../../public/assets/images/venice-italy.jpg')
+    //  no-repeat center;
+    //background-size: cover;
+    //height: 500px;
     margin-bottom: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    //justify-content: center;
+    //align-items: center;
     color: #fff;
     text-align: center;
 
@@ -38,8 +38,36 @@
   }
 }
 
-.bacon > img {
-  width: 75px;
-  display: block;
-  margin: auto;
+td {
+    padding: 3px;
 }
+
+tbody#mytable-body tr.orphan {
+  background-color: #f6d0d0;
+}
+tbody#mytable-body tr.canon {
+  background-color: #cbe3ee;
+}
+tbody#mytable-body tr.latest {
+  background-color: #cfe7ca;
+}
+tbody#mytable-body tr.uncler td:first-child {
+  border-left: 5px solid #c5b5f3;
+}
+tbody#mytable-body tr.dupeEnd td {
+  border-bottom: 1rem solid white;
+}
+
+td.truncate-hash {
+    max-width: 100px;
+    overflow: hidden;
+    overflow-scrolling: auto;
+    //text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+//.bacon > img {
+//  width: 75px;
+//  display: block;
+//  margin: auto;
+//}
