@@ -1,9 +1,9 @@
 {
-  "name": "live-reload-vanilla-website-template",
+  "name": "ETH/ETC Orphan Tracker UI",
   "version": "1.0.0",
-  "description": "Template to build a website without a front-end framework. Includes transpilation of ES6+ JavaScript and Sass support",
+  "description": "Built from a template to build a website without a front-end framework. Includes transpilation of ES6+ JavaScript and Sass support",
   "main": "main.js",
-  "author": "Esau Silva",
+  "author": "Isaac",
   "license": "MIT",
   "scripts": {
     "dev:assets": "webpack --watch",
@@ -30,10 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/esausilva/live-reload-vanilla-website-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/esausilva/live-reload-vanilla-website-template/issues"
+    "url": "https://github.com/meowsbits/live-reload-vanilla-website-template.git"
   },
   "keywords": [
     "JavaScript",
