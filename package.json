@@ -1,5 +1,5 @@
 {
-  "name": "ETH/ETC Orphan Tracker UI",
+  "name": "ETH-ETC-Orphan-Tracker-UI",
   "version": "1.0.0",
   "description": "Built from a template to build a website without a front-end framework. Includes transpilation of ES6+ JavaScript and Sass support",
   "main": "main.js",
