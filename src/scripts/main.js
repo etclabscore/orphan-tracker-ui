@@ -62,5 +62,5 @@ GetStatus()
 
     })
     .catch(err => {
-        statusTableBody.innerHTML = err;
+        // tableRowStatus.innerHTML = err;
     });

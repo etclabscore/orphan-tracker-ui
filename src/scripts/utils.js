@@ -1,21 +1,29 @@
 export const GetHeaders = () => {
-  const body = fetch('https://classic.orphans.etccore.in/api/headers?limit=100').then(
-    res => res.json()
-  ).catch((err) => {
-    console.log(err);
-    return Promise.reject(err);
-  });
-  return body;
+    let search = document.location.search;
+    if (search === "") {
+        if (window.history.replaceState) {
+            let newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?limit=100&include_txes=false';
+            window.history.replaceState({path: newurl}, '', newurl);
+        }
+    }
+
+    const body = fetch('/api/headers' + document.location.search).then(
+        res => res.json()
+    ).catch((err) => {
+        console.log(err);
+        return Promise.reject(err);
+    });
+    return body;
 };
 
 export const GetStatus = () => {
-  const body = fetch('https://classic.orphans.etccore.in/status').then(
-    res => res.json()
-  ).catch((err) => {
-    console.log(err);
-    return Promise.reject(err);
-  });
-  return body;
+    const body = fetch('/status').then(
+        res => res.json()
+    ).catch((err) => {
+        console.log(err);
+        return Promise.reject(err);
+    });
+    return body;
 };
 
 /*
