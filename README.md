@@ -1,3 +1,8 @@
+# orphan-tracker-ui
+
+This repo provides the web user interface for https://github.com/etclabscore/go-orphan-tracker.
+It is included at that repo as a submodule.
+
 ## Features
 
 - Live reload in development
