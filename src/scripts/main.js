@@ -16,11 +16,11 @@ function makeHeaderTableRow(headerJSON, lastOfDupes) {
     ${lastOfDupes ? 'dupeEnd' : ''}
     ${headerJSON.is_latest ? 'latest' : ''}
     ">
-    <td>${headerJSON.number}</td>
-    <td>${headerJSON.timestamp}</td>
-    <td class="truncate-hash">${headerJSON.miner}</td>
-    <td class="truncate-hash">${headerJSON.hash}</td>
-    <td class="truncate-hash">${headerJSON.uncleBy}</td>
+    <td class="td-header-number">${headerJSON.number}</td>
+    <td class="td-header-timestamp">${headerJSON.timestamp}</td>
+    <td class="truncate-hash td-header-miner">${headerJSON.miner}</td>
+    <td class="truncate-hash td-header-hash">${headerJSON.hash}</td>
+    <td class="truncate-hash td-header-uncleBy">${headerJSON.uncleBy}</td>
     <td>${headerJSON.gasUsed}</td>
 </tr>`;
 }

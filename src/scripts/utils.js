@@ -1,3 +1,5 @@
+const apiPath = process.env.NODE_ENV !== 'production' ? 'http://localhost:8081' : '';
+
 export const GetHeaders = () => {
     let search = document.location.search;
     if (search === "") {
@@ -7,7 +9,7 @@ export const GetHeaders = () => {
         }
     }
 
-    const body = fetch('/api/headers' + document.location.search).then(
+    const body = fetch(apiPath + '/api/headers' + document.location.search).then(
         res => res.json()
     ).catch((err) => {
         console.log(err);
@@ -17,7 +19,7 @@ export const GetHeaders = () => {
 };
 
 export const GetStatus = () => {
-    const body = fetch('/status').then(
+    const body = fetch(apiPath + '/status').then(
         res => res.json()
     ).catch((err) => {
         console.log(err);

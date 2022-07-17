@@ -1,11 +1,12 @@
 @import 'reset.scss';
 
 .wrapper {
+  font-family: monospace;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto 1fr auto;
-  //line-height: 23px;
+  line-height: 1rem;
 
   & > * {
     grid-column: 2 / -2;
@@ -43,19 +44,24 @@ td {
 }
 
 tbody#mytable-body tr.orphan {
-  background-color: #f6d0d0;
+  td:first-child {
+   color: #a20000;
+  }
+  td {
+    color: #7e7e7e;
+  }
 }
 tbody#mytable-body tr.canon {
-  background-color: #cbe3ee;
+  color: inherit;
 }
 tbody#mytable-body tr.latest {
-  background-color: #cfe7ca;
+  color: #005400;
 }
 tbody#mytable-body tr.uncler td:first-child {
-  border-left: 5px solid #c5b5f3;
+  //padding-left: 1rem;
 }
 tbody#mytable-body tr.dupeEnd td {
-  border-bottom: 1rem solid white;
+  //border-bottom: 1rem solid white;
 }
 
 td.truncate-hash {
