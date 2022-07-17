@@ -23,6 +23,7 @@ export const GetStatus = () => {
         res => res.json()
     ).catch((err) => {
         console.log(err);
+        console.debug(res);
         return Promise.reject(err);
     });
     return body;

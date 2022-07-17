@@ -1,28 +1,33 @@
 import {GetHeaders, GetStatus} from './utils';
+import {initSortable} from "./sortable";
 
 const tableBody = document.querySelector('#mytable-body');
 const loadingIcon = document.querySelector('#loading-icon');
 const empyUnclesHash = "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"
 
 const tableRowStatus = document.querySelector('tr#latest-block');
+const statusChainID = document.querySelector('#status-chain-id');
+const statusUptime = document.querySelector('#status-uptime');
 
 // makeHeaderTableRow makes a table row for a header.
 // It returns HTML.
 function makeHeaderTableRow(headerJSON, lastOfDupes) {
-    return `
+    const str = `
 <tr class="
     ${headerJSON.orphan ? 'orphan' : 'canon'} 
     ${headerJSON.sha3Uncles !== empyUnclesHash ? 'uncler' : ''} 
     ${lastOfDupes ? 'dupeEnd' : ''}
     ${headerJSON.is_latest ? 'latest' : ''}
     ">
-    <td class="td-header-number">${headerJSON.number}</td>
+    <td class="td-header-number"><span>${headerJSON.number}</span></td>
     <td class="td-header-timestamp">${headerJSON.timestamp}</td>
     <td class="truncate-hash td-header-miner">${headerJSON.miner}</td>
     <td class="truncate-hash td-header-hash">${headerJSON.hash}</td>
     <td class="truncate-hash td-header-uncleBy">${headerJSON.uncleBy}</td>
     <td>${headerJSON.gasUsed}</td>
 </tr>`;
+
+    return str;
 }
 
 GetHeaders()
@@ -37,9 +42,12 @@ GetHeaders()
             const lastOfDupes = i === res.length - 1 || res[i + 1].number !== header.number;
 
             const row = makeHeaderTableRow(header, lastOfDupes);
-            tableBody.innerHTML += row;
+            tableBody.insertAdjacentHTML("beforeend", row);
         }
 
+    })
+    .then(() => {
+        initSortable();
     })
     .catch(err => (tableBody.innerHTML = err));
 
@@ -59,6 +67,9 @@ GetStatus()
             ObjParent.replaceChild(tmpObj,tableRowStatus); //here we placing our temporary data instead of our target, so we can find it then and replace it into whatever we want to replace to
             ObjParent.innerHTML=ObjParent.innerHTML.replace('<div><!--THIS DATA SHOULD BE REPLACED--></div>',statusRowHTML);
         }
+
+        statusChainID.innerHTML = `${res.chain_id}`;
+        statusUptime.innerHTML = `${res.uptime}s`;
 
     })
     .catch(err => {
