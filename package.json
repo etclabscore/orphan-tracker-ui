@@ -38,5 +38,8 @@
     "ES6+",
     "live reload",
     "Sass"
-  ]
+  ],
+  "dependencies": {
+    "tippy.js": "^6.3.7"
+  }
 }

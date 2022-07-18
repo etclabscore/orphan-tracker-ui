@@ -1,5 +1,7 @@
 @import 'reset.scss';
 @import "sortable.scss";
+@import 'tippy.js/dist/tippy.css'; // optional for styling
+
 
 .wrapper {
   font-family: monospace;
