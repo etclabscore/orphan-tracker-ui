@@ -47,6 +47,18 @@
     .source {
       padding: 0.5rem;
     }
+
+    #legend {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.5rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      //font-weight: bold;
+      color: #000;
+    }
   }
 
   main {
@@ -87,37 +99,118 @@ tr th {
 }
 
 tbody#mytable-body tr.orphan {
-  td:first-child span {
+  td.td-header-number span {
    color: #a20000;
     //text-decoration: underline;
     //border-left: #a20000 solid 2px;
   }
-  td:first-child::before {
-    content: "•";
-    color: #a20000;
-    margin-left: -0.5rem;
-    //display: block;
-    //width: 0;
-    //height: 0;
-    //border-left: 10px solid transparent;
-    //border-right: 10px solid transparent;
-    //border-bottom: 10px solid #a20000;
-    //margin-left: -10px;
-    //margin-top: -10px;
-  }
+  //td:first-child::before {
+  //  content: "•";
+  //  color: #a20000;
+  //  margin-left: -0.5rem;
+  //  //display: block;
+  //  //width: 0;
+  //  //height: 0;
+  //  //border-left: 10px solid transparent;
+  //  //border-right: 10px solid transparent;
+  //  //border-bottom: 10px solid #a20000;
+  //  //margin-left: -10px;
+  //  //margin-top: -10px;
+  //}
   td {
     color: #7e7e7e;
+    //color: #a20000;
+
   }
+
 }
+
+
+
+td.td-uncle-orphan-ui {
+  text-align: right;
+  padding: 0px !important;
+  width: 0.15rem !important;
+  align-content: center;
+}
+
+span.orphan-ui {
+  color: #a20000 !important;
+  padding-right: 0.3rem;
+}
+
+span.uncler-ui {
+  color: #a20000 !important;
+  padding-right: 0.3rem;
+}
+
+.legend-key {
+  margin-right: 0.3rem;
+  margin-left: 0.5rem;
+
+}
+.legend-value {
+
+}
+
+//td.td-is-uncler {
+//
+//  text-align: center;
+//  padding: 0px !important;
+//  width: 0.15rem !important;
+//}
+
+.sortable th.skinny {
+    padding: 0.2rem;
+}
+
 tbody#mytable-body tr.canon {
   color: inherit;
 }
 tbody#mytable-body tr.latest td:first-child {
   color: #005400;
 }
-tbody#mytable-body tr.uncler td:first-child {
-  //padding-left: 1rem;
+
+//.td-header-hash {
+//  margin-right: 2rem;
+//}
+
+tr.canon.uncler {
+  //background-color: #ffd0d0;
 }
+
+//tbody#mytable-body tr.uncler {
+//  //text-decoration-line: underline;
+//  //text-decoration-style: dashed;
+//  //text-decoration-color: #7e7e7e;
+//  //text-decoration-thickness: 0.05rem;
+//  //text-decoration: underline 0.1rem dashed gray;
+//  background-color: #eee;
+//
+//  ::after {
+//    content: "x";
+//    margin-left: 1rem;
+//    //display: block;
+//    //width: 0;
+//    //height: 0;
+//    //margin-right: 0;
+//  }
+//
+//  //:before {
+//  //  content: "x";
+//  //  display: block;
+//  //  width: 0;
+//  //  height: 0;
+//  //  border-left: 5.5rem solid transparent;
+//  //  border-right: 0px solid transparent;
+//  //  border-bottom: 0px solid #eee;
+//  //  margin-right: 0px;
+//  //  margin-top: 0px;
+//  //}
+//}
+//  //padding-left: 1rem;
+
+
 tbody#mytable-body tr.dupeEnd td {
   //border-bottom: 1rem solid white;
 }

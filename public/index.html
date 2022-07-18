@@ -9,6 +9,13 @@
 
   <link rel="stylesheet" href="./assets/styles/main.css">
 
+  <style id="mystyle">
+    tr.canon.canon-uncontested-row {
+      display: none;
+    }
+
+  </style>
+
 </head>
 
 <body>
@@ -18,8 +25,22 @@
         <div class="ui-chain-id ">Chain ID <div id="status-chain-id" class="text-bold"></div></div>
         <div class="ui-uptime ">Tracker Uptime <div id="status-uptime" class="text-bold"></div></div>
     </div>
+
+      <div id="legend">
+        <div class="">
+        <span class="legend-key orphan-ui">●</span><span class="legend-value orphan-ui">Orphan</span>
+        </div>
+        <div class="">
+        <span class="legend-key uncler-ui">◌</span><span class="legend-value">Registers Uncle(s)</span>
+        </div>
+      </div>
+
       <div class="source">
         <a href="https://github.com/etclabscore/go-orphan-tracker">github.com/etclabscore/go-orphan-tracker</a>
+        <div class="">
+          <input type="checkbox" name="fill-all-canonical" id="fill-canonical">
+          <label for="fill-canonical"><span style="color: black;">Show all canonical rows</span></label>
+        </div>
       </div>
 <!--      <h1>Orphan Tracker</h1>-->
     </header>
@@ -28,6 +49,7 @@
         <table id="mytable" class="sortable">
           <thead>
             <tr id="table-head-row">
+              <th class="skinny"></th>
               <th>Number</th>
               <th>Timestamp</th>
               <th>Miner</th>

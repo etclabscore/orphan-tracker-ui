@@ -1,4 +1,5 @@
 const apiPath = process.env.NODE_ENV !== 'production' ? 'http://localhost:8081' : '';
+// const apiPath = process.env.NODE_ENV !== 'production' ? 'https://classic.orphans.etccore.in' : '';
 
 export const GetHeaders = () => {
     let search = document.location.search;
@@ -55,3 +56,26 @@ export const GetStatus = () => {
         "uncleBy": ""
     }
  */
+
+export const ListenCheckbox = (id, onChange) => {
+    const el = document.querySelector(`#${id}`);
+    if (el) {
+        const searchParams = new URLSearchParams(document.location.search.substring(1));
+        if (searchParams.get('fill_canonical_chain') === 'true') {
+            el.checked = true;
+        }
+        onChange(el);
+        el.addEventListener('change', (e) => {
+            const searchParams = new URLSearchParams(document.location.search.substring(1));
+            if (e.target.checked) {
+                searchParams.set("fill_canonical", e.target.checked);
+            } else {
+                searchParams.delete("fill_canonical");
+            }
+            const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams.toString();
+            window.history.replaceState({path: newurl}, '', newurl);
+            onChange(e.target);
+
+        });
+    }
+};
