@@ -37,7 +37,7 @@ function makeHeaderTableRow(headerJSON, lastOfDupes) {
      </td>
     <td class="td-header-number"><span>${headerJSON.number}</span></td>
     <td class="td-header-timestamp">${headerJSON.timestamp}</td>
-    <td class="truncate-hash td-header-miner">${headerJSON.miner}</td>
+    <td hash="${headerJSON.miner}" class="truncate-hash hover-hash hashid-${headerJSON.miner} td-header-miner"><span>${headerJSON.miner}</span></td>
     <td hash="${headerJSON.parentHash}" class="truncate-hash hover-hash hashid-${headerJSON.parentHash} td-header-parenthash"><span>${headerJSON.parentHash}</span></td>
     <td hash="${headerJSON.hash}" class="truncate-hash hover-hash hashid-${headerJSON.hash} td-header-hash"><span>${headerJSON.hash}</span></td>
     <td hash="${headerJSON.uncleBy}" class="truncate-hash hover-hash hashid-${headerJSON.uncleBy} td-header-uncleBy"><span>${headerJSON.uncleBy}</span></td>
