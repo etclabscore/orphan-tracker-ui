@@ -162,8 +162,11 @@ span.uncler-ui {
 //  width: 0.15rem !important;
 //}
 
-.sortable th.skinny {
+.sortable th {
+  text-align: center;
+  .skinny {
     padding: 0.2rem;
+  }
 }
 
 tbody#mytable-body tr.canon {
@@ -217,16 +220,21 @@ tbody#mytable-body tr.dupeEnd td {
   //border-bottom: 1rem solid white;
 }
 
-td.truncate-hash {
+.truncate-hash {
     max-width: 6rem;
     overflow: hidden;
     overflow-scrolling: auto;
     //text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+td, th {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+td.hover-hash.hovering > * {
+
+    background-color: yellow !important;
 
 }
-//.bacon > img {
-//  width: 75px;
-//  display: block;
-//  margin: auto;
-//}

@@ -38,10 +38,11 @@ function makeHeaderTableRow(headerJSON, lastOfDupes) {
     <td class="td-header-number"><span>${headerJSON.number}</span></td>
     <td class="td-header-timestamp">${headerJSON.timestamp}</td>
     <td class="truncate-hash td-header-miner">${headerJSON.miner}</td>
-    <td class="truncate-hash td-header-hash"><span>${headerJSON.hash}</span></td>
-    <td class="truncate-hash td-header-uncleBy">${headerJSON.uncleBy}</td>
-    <td class="truncate-hash td-header-uncle1">${headerJSON.uncle1 ? headerJSON.uncle1 : ''}</td>
-    <td class="truncate-hash td-header-uncle2">${headerJSON.uncle2 ? headerJSON.uncle2 : ''}</td>
+    <td hash="${headerJSON.parentHash}" class="truncate-hash hover-hash hashid-${headerJSON.parentHash} td-header-parenthash"><span>${headerJSON.parentHash}</span></td>
+    <td hash="${headerJSON.hash}" class="truncate-hash hover-hash hashid-${headerJSON.hash} td-header-hash"><span>${headerJSON.hash}</span></td>
+    <td hash="${headerJSON.uncleBy}" class="truncate-hash hover-hash hashid-${headerJSON.uncleBy} td-header-uncleBy"><span>${headerJSON.uncleBy}</span></td>
+    <td hash="${headerJSON.uncle1}" class="truncate-hash hover-hash hashid-${headerJSON.uncle1 || ''} td-header-uncle1"><span>${headerJSON.uncle1 ? headerJSON.uncle1 : ''}</span></td>
+    <td hash="${headerJSON.uncle2}" class="truncate-hash hover-hash hashid-${headerJSON.uncle2 || ''} td-header-uncle2"><span>${headerJSON.uncle2 ? headerJSON.uncle2 : ''}</span></td>
     <td>${headerJSON.gasUsed}</td>
 </tr>`;
 
@@ -104,6 +105,24 @@ function initMyTippy(header) {
     });
 }
 
+function installHashHighlighter(header) {
+    document.getElementById(headerTableRowID(header)).querySelectorAll('td.hover-hash')
+        .forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.querySelectorAll(`.hashid-${el.getAttribute("hash")}`).forEach(item => {
+                    item.classList.add('hovering');
+                })
+            });
+        });
+    document.getElementById(headerTableRowID(header)).querySelectorAll('td.hover-hash').forEach(el => {
+        el.addEventListener('mouseleave', () => {
+            document.querySelectorAll(`.hashid-${el.getAttribute("hash")}`).forEach(item => {
+                item.classList.remove('hovering');
+            });
+        });
+    });
+}
+
 GetStatus()
     .then(res => {
         res.latest_header["is_latest"] = true;
@@ -122,7 +141,7 @@ GetStatus()
             ObjParent.replaceChild(tmpObj, tableRowStatus); //here we placing our temporary data instead of our target, so we can find it then and replace it into whatever we want to replace to
             ObjParent.innerHTML = ObjParent.innerHTML.replace('<div><!--THIS DATA SHOULD BE REPLACED--></div>', statusRowHTML);
         }
-
+        installHashHighlighter(res.latest_header);
         initMyTippy(res.latest_header);
         statusChainID.innerHTML = `${res.chain_id}`;
         statusUptime.innerHTML = `${res.uptime}s`;
@@ -150,6 +169,8 @@ GetStatus()
 
                     const row = makeHeaderTableRow(header, lastOfDupes);
                     tableBody.insertAdjacentHTML("beforeend", row);
+
+                    installHashHighlighter(header);
 
                     initMyTippy(header)
 

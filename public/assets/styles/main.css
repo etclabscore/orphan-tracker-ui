@@ -219,8 +219,10 @@ span.uncler-ui {
   margin-right: 0.3rem;
   margin-left: 0.5rem; }
 
-.sortable th.skinny {
-  padding: 0.2rem; }
+.sortable th {
+  text-align: center; }
+  .sortable th .skinny {
+    padding: 0.2rem; }
 
 tbody#mytable-body tr.canon {
   color: inherit; }
@@ -228,9 +230,16 @@ tbody#mytable-body tr.canon {
 tbody#mytable-body tr.latest td:first-child {
   color: #005400; }
 
-td.truncate-hash {
+.truncate-hash {
   max-width: 6rem;
   overflow: hidden;
   overflow-scrolling: auto;
   white-space: nowrap; }
+
+td, th {
+  padding-left: 1rem;
+  padding-right: 1rem; }
+
+td.hover-hash.hovering > * {
+  background-color: yellow !important; }
 
